@@ -1,0 +1,974 @@
+/* ==========================================================================
+   VOLTEYE-INFO (volteye-info.html) — regras específicas desta página
+   ========================================================================== */
+
+/* ═══════════════════════════════════════════
+   PRODUTO EM DESTAQUE
+   ═══════════════════════════════════════════ */
+#destaque {
+  padding: 80px 5% 100px;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+}
+
+.destaque-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* left — product visual */
+.produto-visual {
+  position: relative;
+}
+
+.produto-device {
+  background: var(--navy-mid);
+  border: 1px solid rgba(0, 207, 255, 0.25);
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.produto-device::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--electric), var(--gold), transparent);
+}
+
+.device-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.device-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.device-logo-area img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.device-brand {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.device-model {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--electric);
+  letter-spacing: 3px;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--green);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s infinite;
+}
+
+.device-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-box {
+  background: rgba(0, 207, 255, 0.04);
+  border: 1px solid rgba(0, 207, 255, 0.12);
+  padding: 16px 18px;
+  border-radius: 2px;
+  transition: border-color 0.3s;
+}
+
+.metric-box:hover {
+  border-color: rgba(0, 207, 255, 0.35);
+}
+
+.metric-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--electric);
+}
+
+.metric-value.gold {
+  color: var(--gold);
+}
+
+.metric-value.green {
+  color: var(--green);
+}
+
+.metric-unit {
+  font-size: 0.8rem;
+  color: var(--gray);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.device-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.bar-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gray);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--electric), rgba(0, 207, 255, 0.5));
+}
+
+.bar-val {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--electric);
+  width: 36px;
+  text-align: right;
+}
+
+/* badge */
+.badge-launch {
+  position: absolute;
+  top: -14px;
+  right: 24px;
+  background: linear-gradient(135deg, #ff3b00, #ffb300, #ff6a00);
+  color: #0a0a0a;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  animation: firePulse 1.2s infinite ease-in-out;
+  overflow: hidden;
+}
+
+.badge-launch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: shine 2.5s infinite;
+}
+
+@keyframes firePulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 10px rgba(255, 90, 0, 0.4);
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.6) saturate(1.8);
+    box-shadow:
+      0 0 25px rgba(255, 80, 0, 0.8),
+      0 0 60px rgba(0, 207, 255, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 12px rgba(255, 120, 0, 0.5);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(120%) skewX(-20deg);
+  }
+}
+
+@keyframes glow-badge {
+
+  0%,
+  100% {
+    box-shadow: 0 0 12px rgba(240, 165, 0, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(240, 165, 0, 0.8);
+  }
+}
+
+/* right — product info */
+.produto-info {
+  padding-top: 8px;
+}
+
+.produto-cat {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--electric);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.produto-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 50%, var(--electric));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.produto-desc {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.85;
+  margin-bottom: 32px;
+  border-left: 2px solid rgba(0, 207, 255, 0.3);
+  padding-left: 18px;
+}
+
+/* price block */
+.price-block {
+  background: rgba(10, 24, 41, 0.8);
+  border: 1px solid rgba(0, 207, 255, 0.18);
+  padding: 28px 28px;
+  margin-bottom: 32px;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  position: relative;
+}
+
+.price-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: #000;
+  background: var(--gold);
+  padding: 4px 12px;
+  margin-bottom: 14px;
+}
+
+.price-original {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(143, 168, 200, 0.5);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.price-promo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(0, 255, 153, 0.4);
+}
+
+.price-promo sup {
+  font-size: 1.4rem;
+  vertical-align: super;
+}
+
+.price-promo .cents {
+  font-size: 1.6rem;
+}
+
+.price-economy {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eco-tag {
+  background: rgba(0, 255, 153, 0.12);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+}
+
+.eco-label {
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+.produto-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ═══ BENEFÍCIOS ═══ */
+#beneficios {
+  padding: 80px 5%;
+  background: var(--navy);
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.beneficio-card {
+  background: rgba(10, 24, 41, 0.7);
+  border: 1px solid rgba(0, 207, 255, 0.1);
+  padding: 28px 24px;
+  transition: all 0.35s;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.beneficio-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric), transparent);
+  transform: scaleX(0);
+  transition: transform 0.35s;
+}
+
+.beneficio-card:hover {
+  border-color: rgba(0, 207, 255, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0, 207, 255, 0.1);
+}
+
+.beneficio-card:hover::after {
+  transform: scaleX(1);
+}
+
+.ben-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.ben-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.ben-text {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ═══ SPECS TABLE ═══ */
+#specs {
+  padding: 80px 5%;
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+}
+
+.specs-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid rgba(0, 207, 255, 0.07);
+  transition: background 0.2s;
+}
+
+.specs-table tr:hover {
+  background: rgba(0, 207, 255, 0.03);
+}
+
+.specs-table td {
+  padding: 18px 24px;
+  font-size: 0.88rem;
+  vertical-align: top;
+}
+
+.specs-table td:first-child {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--electric);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(0, 207, 255, 0.1);
+}
+
+.specs-table td:last-child {
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.specs-table td:last-child strong {
+  color: var(--white);
+}
+
+.spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spec-chip {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  color: var(--electric);
+  background: rgba(0, 207, 255, 0.04);
+}
+
+/* ═══ DEMO PAINEL ═══ */
+#demo {
+  padding: 80px 5%;
+  background: var(--navy);
+}
+
+.launch-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: rgba(10, 24, 41, .85);
+  border: 1px solid rgba(0, 207, 255, .2);
+  clip-path: polygon(0 0,
+      calc(100% - 30px) 0,
+      100% 30px,
+      100% 100%,
+      30px 100%,
+      0 calc(100% - 30px));
+}
+
+.launch-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center,
+      rgba(0, 207, 255, .08),
+      transparent 70%);
+  animation: pulseGlow 4s infinite;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: .4
+  }
+
+  50% {
+    opacity: 1
+  }
+}
+
+.launch-status {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 2px;
+  color: #00ff99;
+  margin-bottom: 25px;
+}
+
+.launch-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+.launch-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.launch-card p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.launch-features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.launch-features span {
+  padding: 10px 16px;
+  border: 1px solid rgba(0, 207, 255, .2);
+  background: rgba(0, 207, 255, .05);
+}
+
+.launch-btn {
+  position: relative;
+  padding: 18px 50px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg,
+      #00cfff,
+      #0099cc);
+  color: #05111d;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.btn-pulse {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, .5);
+  animation: buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.launch-btn:hover {
+  box-shadow:
+    0 0 25px rgba(0, 207, 255, .6),
+    0 0 60px rgba(0, 207, 255, .3);
+  transform: translateY(-3px);
+}
+
+.launch-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-12px)
+  }
+}
+
+@keyframes logoRotate {
+  from {
+    rotate: 0deg
+  }
+
+  to {
+    rotate: 360deg
+  }
+}
+
+.boot-line {
+  margin-top: 25px;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 2px;
+  color: #00cfff;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 12px rgba(0, 207, 255, .9),
+    0 0 25px rgba(0, 207, 255, .4);
+  animation: bootPulse 1.8s infinite;
+}
+
+.boot-progress {
+  height: 8px;
+  background: #06101f;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+.boot-fill {
+  height: 100%;
+  width: 0;
+  background:
+    linear-gradient(90deg,
+      #00cfff,
+      #00ff99);
+  animation: bootLoad 3s forwards;
+}
+
+@keyframes bootLoad {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+.boot-status {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .75rem;
+  color: #00ff99;
+}
+
+.tech-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 207, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 207, 255, .04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.demo-super-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 30px;
+  background: linear-gradient(90deg,
+      #ffffff,
+      #00cfff,
+      #ffffff);
+  background-size: 200% auto;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlow 4s linear infinite;
+  text-shadow:
+    0 0 20px rgba(0, 207, 255, .5),
+    0 0 50px rgba(0, 207, 255, .3);
+}
+
+.demo-super-sub {
+  max-width: 800px;
+  margin: 20px auto 35px;
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #b8d8ff;
+  text-shadow:
+    0 0 15px rgba(0, 207, 255, .15);
+}
+
+@keyframes titleGlow {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes bootPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .45;
+  }
+}
+
+/* ═══ PRÓXIMOS LANÇAMENTOS ═══ */
+#proximos {
+  padding: 80px 5%;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+}
+
+.proximos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.proximo-card {
+  background: rgba(10, 24, 41, 0.6);
+  border: 1px solid rgba(0, 207, 255, 0.08);
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  transition: all 0.35s;
+}
+
+.proximo-card:hover {
+  border-color: rgba(0, 207, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.proximo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 207, 255, 0.03) 0%, transparent 70%);
+}
+
+.lock-icon {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.proximo-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  border: 1px solid rgba(240, 165, 0, 0.3);
+  padding: 4px 14px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.proximo-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.proximo-desc {
+  font-size: 0.8rem;
+  color: rgba(143, 168, 200, 0.4);
+  line-height: 1.6;
+}
+
+.proximo-bar {
+  margin-top: 20px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.proximo-bar-fill {
+  height: 100%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+/* ═══ FINAL CTA ═══ */
+#final-cta {
+  padding: 120px 5%;
+  text-align: center;
+  background: var(--navy-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+#final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 207, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.final-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.final-title span {
+  color: var(--electric);
+}
+
+.final-text {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .destaque-inner {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+
+  .beneficios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .proximos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .beneficios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proximos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .produto-btns {
+    flex-direction: column;
+  }
+
+  .launch-card {
+    padding: 40px 20px;
+  }
+
+  .launch-icon {
+    font-size: 3.5rem;
+  }
+
+  .launch-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .launch-btn {
+    width: 100%;
+  }
+}
+
+/* ── Correção de responsividade: badge de lançamento pode estourar a
+   largura do card .produto-visual em telas muito estreitas ── */
+@media (max-width: 480px) {
+  .badge-launch {
+    right: 12px;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+}

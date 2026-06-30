@@ -1,0 +1,654 @@
+/* ==========================================================================
+   CONTATO (contato.html) — regras específicas desta página
+   ========================================================================== */
+
+/* ─── HERO ─── */
+#hero-contato {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 5% 80px;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 207, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 207, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+}
+
+.hero-contato-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  color: var(--electric);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--electric);
+  box-shadow: var(--glow-blue);
+}
+
+.hero-contato-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.hero-contato-title .hl-electric {
+  color: var(--electric);
+  text-shadow: 0 0 40px rgba(0, 207, 255, 0.35);
+}
+
+.hero-contato-title .hl-gold {
+  color: var(--gold);
+}
+
+.hero-contato-sub {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ─── CANAIS DE CONTATO ─── */
+#canais {
+  padding: 80px 5%;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+}
+
+.canais-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.canal-card {
+  background: rgba(10, 24, 41, 0.85);
+  border: 1px solid rgba(0, 207, 255, 0.14);
+  padding: 44px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  transition: all 0.4s;
+}
+
+.canal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.canal-card:hover {
+  border-color: rgba(0, 207, 255, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 207, 255, 0.12);
+}
+
+.canal-card:hover::before {
+  opacity: 1;
+}
+
+.canal-card.ig-card:hover {
+  border-color: rgba(225, 48, 108, 0.4);
+  box-shadow: 0 20px 60px rgba(225, 48, 108, 0.1);
+}
+
+.canal-card.ig-card::before {
+  background: linear-gradient(90deg, transparent, #E1306C, transparent);
+}
+
+.canal-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 207, 255, 0.07);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  font-size: 1.8rem;
+  transition: all 0.4s;
+}
+
+.canal-card:hover .canal-icon-wrap {
+  background: rgba(0, 207, 255, 0.14);
+  box-shadow: 0 0 30px rgba(0, 207, 255, 0.2);
+}
+
+.ig-card .canal-icon-wrap {
+  background: rgba(225, 48, 108, 0.07);
+  border-color: rgba(225, 48, 108, 0.2);
+}
+
+.ig-card:hover .canal-icon-wrap {
+  background: rgba(225, 48, 108, 0.14);
+  box-shadow: 0 0 30px rgba(225, 48, 108, 0.2);
+}
+
+.canal-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  color: var(--electric);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.ig-card .canal-tag {
+  color: #E1306C;
+}
+
+.canal-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.canal-handle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--electric);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.ig-card .canal-handle {
+  color: #E1306C;
+}
+
+.canal-desc {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── STATUS INDICATORS ── */
+.canal-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s infinite;
+}
+
+/* ─── FORM ─── */
+#formulario {
+  padding: 80px 5%;
+  background: var(--navy);
+}
+
+.form-container {
+  max-width: 680px;
+  margin: 0 auto;
+  background: rgba(10, 24, 41, 0.8);
+  border: 1px solid rgba(0, 207, 255, 0.14);
+  padding: 48px 52px;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--electric), var(--gold), transparent);
+}
+
+.form-header {
+  margin-bottom: 36px;
+}
+
+.form-header .section-label {
+  justify-content: flex-start;
+}
+
+.form-header .section-label::before {
+  display: none;
+}
+
+.form-header .section-label::after {
+  display: none;
+}
+
+.form-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-title span {
+  color: var(--electric);
+}
+
+.form-subtitle {
+  font-size: 0.84rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  color: var(--electric);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(0, 207, 255, 0.03);
+  border: 1px solid rgba(0, 207, 255, 0.15);
+  color: var(--white);
+  font-family: 'Exo 2', sans-serif;
+  font-size: 0.9rem;
+  padding: 14px 18px;
+  outline: none;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(143, 168, 200, 0.4);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--electric);
+  background: rgba(0, 207, 255, 0.06);
+  box-shadow: 0 0 0 1px rgba(0, 207, 255, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-submit {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--electric), var(--electric-dim));
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, #fff, var(--electric));
+  box-shadow: var(--glow-blue);
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 28px;
+  background: rgba(0, 255, 153, 0.06);
+  border: 1px solid rgba(0, 255, 153, 0.25);
+  margin-top: 20px;
+}
+
+.form-success.show {
+  display: block;
+}
+
+.form-success .fs-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.form-success p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--green);
+  letter-spacing: 2px;
+}
+
+/* ─── REDES SOCIAIS ─── */
+#redes {
+  padding: 80px 5%;
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+}
+
+.redes-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rede-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  text-decoration: none;
+  background: rgba(10, 24, 41, 0.8);
+  border: 1px solid rgba(0, 207, 255, 0.14);
+  transition: all 0.35s;
+  min-width: 260px;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.rede-item:hover {
+  border-color: rgba(0, 207, 255, 0.5);
+  background: rgba(0, 207, 255, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 207, 255, 0.12);
+}
+
+.rede-item.ig:hover {
+  border-color: rgba(225, 48, 108, 0.5);
+  background: rgba(225, 48, 108, 0.06);
+  box-shadow: 0 16px 40px rgba(225, 48, 108, 0.1);
+}
+
+.rede-icon {
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 207, 255, 0.08);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  flex-shrink: 0;
+  transition: all 0.35s;
+}
+
+.rede-item:hover .rede-icon {
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.3);
+}
+
+.rede-item.ig .rede-icon {
+  background: rgba(225, 48, 108, 0.08);
+  border-color: rgba(225, 48, 108, 0.2);
+}
+
+.rede-item.ig:hover .rede-icon {
+  box-shadow: 0 0 20px rgba(225, 48, 108, 0.3);
+}
+
+.rede-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.rede-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.rede-handle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--electric);
+}
+
+.rede-item.ig .rede-handle {
+  color: #E1306C;
+}
+
+/* ─── FAQ ─── */
+#faq {
+  padding: 80px 5%;
+  background: var(--navy);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-item {
+  background: rgba(10, 24, 41, 0.7);
+  border: 1px solid rgba(0, 207, 255, 0.1);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 207, 255, 0.25);
+}
+
+.faq-item.open {
+  border-color: rgba(0, 207, 255, 0.3);
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-q-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.faq-arrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--electric);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 24px;
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.8;
+  border-top: 0 solid rgba(0, 207, 255, 0.1);
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 16px 24px 22px;
+  border-top-width: 1px;
+}
+
+/* ─── CTA FINAL ─── */
+#cta-contato {
+  padding: 100px 5%;
+  text-align: center;
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#cta-contato::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 207, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cta-title span {
+  color: var(--electric);
+}
+
+.cta-text {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .canais-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .form-container {
+    padding: 32px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .redes-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rede-item {
+    min-width: 100%;
+    max-width: 380px;
+  }
+
+  .cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-contato-title {
+    font-size: 2.6rem;
+  }
+}
+
+body.light-theme .contato-desc,
+body.light-theme .form-sub {
+  color: #334D68;
+}

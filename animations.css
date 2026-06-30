@@ -1,0 +1,250 @@
+/* ==========================================================================
+   ANIMAÇÕES COMPARTILHADAS — @keyframes usados em 2+ páginas
+   (keyframes exclusivos de uma única página ficam no CSS dessa página)
+   ========================================================================== */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 25px rgba(0, 207, 255, 0.35)) drop-shadow(0 0 50px rgba(240, 165, 0, 0.15));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 207, 255, 0.6)) drop-shadow(0 0 80px rgba(240, 165, 0, 0.3));
+  }
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes flicker {
+
+  0%,
+  95%,
+  100% {
+    opacity: 0.9;
+  }
+
+  96% {
+    opacity: 0.6;
+  }
+
+  97% {
+    opacity: 0.9;
+  }
+
+  98% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes badge-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 207, 255, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(0, 207, 255, 0.3);
+  }
+}
+
+@keyframes logoPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 22px rgba(0, 207, 255, 0.6);
+  }
+
+  100% {
+    box-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes firePulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 10px rgba(255, 90, 0, 0.4);
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.6) saturate(1.8);
+    box-shadow:
+      0 0 25px rgba(255, 80, 0, 0.8),
+      0 0 60px rgba(0, 207, 255, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 12px rgba(255, 120, 0, 0.5);
+  }
+}
+
+@keyframes firePulseCompact {
+
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 10px rgba(255, 90, 0, 0.38);
+  }
+
+  50% {
+    transform: scale(1.025);
+    filter: brightness(1.25) saturate(1.35);
+    box-shadow: 0 0 18px rgba(255, 80, 0, 0.55);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(120%) skewX(-20deg);
+  }
+}
+
+@keyframes scanline {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: .4
+  }
+
+  50% {
+    opacity: 1
+  }
+}
+
+@keyframes floatIcon {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-12px)
+  }
+}
+
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bootLoad {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes bootPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .45;
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}

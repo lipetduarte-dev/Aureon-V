@@ -1,0 +1,694 @@
+/* ==========================================================================
+   EMPRESA (Sistema em Desenvolvimento) — regras específicas desta página:
+   hero com dashboard de boot simulado + mini-game "Pulso Elétrico Runner".
+   ========================================================================== */
+
+/* ─── HERO ─── */
+#hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 5% 40px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--electric);
+  border: 1px solid rgba(0, 207, 255, 0.3);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 1.5s infinite;
+}
+
+.hero-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero-title .t-electric {
+  color: var(--electric);
+  text-shadow: 0 0 30px rgba(0, 207, 255, 0.4);
+}
+
+.hero-title .t-gold {
+  color: var(--gold);
+}
+
+.hero-title .glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title .glitch::before,
+.hero-title .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hero-title .glitch::before {
+  color: var(--electric);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch1 4s infinite;
+}
+
+.hero-title .glitch::after {
+  color: var(--red);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch2 4s infinite;
+}
+
+@keyframes glitch1 {
+
+  0%,
+  94% {
+    clip: rect(0, 0, 0, 0);
+    transform: none;
+    opacity: 0;
+  }
+
+  95% {
+    clip: rect(20px, 900px, 50px, 0);
+    transform: translate(-2px);
+    opacity: 0.8;
+  }
+
+  96% {
+    clip: rect(60px, 900px, 90px, 0);
+    transform: translate(2px);
+    opacity: 0.8;
+  }
+
+  97% {
+    clip: rect(30px, 900px, 70px, 0);
+    transform: translate(-1px);
+    opacity: 0.6;
+  }
+
+  100% {
+    clip: rect(0, 0, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes glitch2 {
+
+  0%,
+  96% {
+    clip: rect(0, 0, 0, 0);
+    transform: none;
+    opacity: 0;
+  }
+
+  97% {
+    clip: rect(50px, 900px, 80px, 0);
+    transform: translate(2px);
+    opacity: 0.7;
+  }
+
+  98% {
+    clip: rect(10px, 900px, 40px, 0);
+    transform: translate(-2px);
+    opacity: 0.7;
+  }
+
+  100% {
+    clip: rect(0, 0, 0, 0);
+    opacity: 0;
+  }
+}
+
+.hero-sub {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+
+.hero-desc {
+  font-size: 0.82rem;
+  color: rgba(143, 168, 200, 0.6);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 48px;
+}
+
+/* Tamanho/sombra originais do logo no nav (este arquivo reusa a classe
+   .footer-logo no <img> do nav; sem isto, img.footer-logo do footer.css
+   compartilhado (círculo 200px) sobrescreveria o tamanho 44px do nav) */
+nav .footer-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 207, 255, 0.35);
+  box-shadow:
+    0 0 10px rgba(0, 207, 255, 0.6),
+    0 0 25px rgba(0, 207, 255, 0.3),
+    0 0 45px rgba(0, 207, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+nav .footer-logo:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 15px rgba(0, 207, 255, 0.9),
+    0 0 35px rgba(0, 207, 255, 0.5),
+    0 0 70px rgba(0, 207, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  nav .footer-logo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ─── DASHBOARD PANEL ─── */
+.dashboard {
+  background: rgba(10, 24, 41, 0.7);
+  border: 1px solid rgba(0, 207, 255, 0.18);
+  padding: 28px 32px;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto 48px;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric), var(--gold), transparent);
+}
+
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--gray);
+}
+
+.dash-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+}
+
+.dash-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: blink 2s infinite;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--electric), var(--green));
+  border-radius: 1px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px rgba(0, 207, 255, 0.5);
+}
+
+.progress-scan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: -30px;
+  }
+}
+
+.dash-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.metric {
+  background: rgba(0, 207, 255, 0.04);
+  border: 1px solid rgba(0, 207, 255, 0.1);
+  padding: 14px 12px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.metric:hover {
+  border-color: rgba(0, 207, 255, 0.3);
+}
+
+.metric-lbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 2px;
+  color: var(--gray);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--electric);
+}
+
+.metric-val.gv {
+  color: var(--green);
+}
+
+.metric-val.ov {
+  color: var(--gold);
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* ─── GAME SECTION ─── */
+#game-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 5% 60px;
+  background: linear-gradient(180deg, var(--navy) 0%, #030810 100%);
+}
+
+.game-controls-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ctrl-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--gray);
+  background: rgba(0, 207, 255, 0.05);
+  border: 1px solid rgba(0, 207, 255, 0.12);
+  padding: 6px 14px;
+}
+
+.ctrl-key {
+  background: rgba(0, 207, 255, 0.1);
+  border: 1px solid rgba(0, 207, 255, 0.3);
+  padding: 2px 8px;
+  color: var(--electric);
+  font-size: 0.65rem;
+}
+
+/* GAME CONTAINER */
+.game-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(3, 8, 16, 0.95);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+}
+
+.game-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--electric), var(--green), var(--electric), transparent);
+  animation: topline 3s linear infinite;
+}
+
+@keyframes topline {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Game HUD */
+.game-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 207, 255, 0.1);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+}
+
+.hud-score {
+  color: var(--electric);
+  letter-spacing: 3px;
+}
+
+.hud-best {
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+.hud-level {
+  color: var(--green);
+  letter-spacing: 3px;
+}
+
+/* Game Canvas */
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 220px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* DIAG OVERLAY */
+.diag-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 8, 16, 0.95);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.diag-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--electric);
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.diag-lines {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.diag-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--gray);
+}
+
+.diag-bar-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.diag-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--electric);
+  border-radius: 1px;
+  transition: width 0.4s ease;
+}
+
+.diag-bar-fill.gold {
+  background: var(--gold);
+}
+
+.diag-bar-fill.green {
+  background: var(--green);
+}
+
+.diag-start-btn {
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--electric), #0099CC);
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  animation: pulse-btn 2s ease-in-out infinite;
+}
+
+.diag-start-btn:hover {
+  box-shadow: var(--glow-e);
+  transform: scale(1.04);
+  animation: none;
+}
+
+@keyframes pulse-btn {
+
+  0%,
+  100% {
+    box-shadow: none;
+  }
+
+  50% {
+    box-shadow: var(--glow-e);
+  }
+}
+
+/* GAME OVER OVERLAY */
+.gameover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 8, 16, 0.96);
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gameover-overlay.show {
+  display: flex;
+}
+
+.go-glitch {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 8px;
+  animation: go-glitch 0.3s steps(2) infinite;
+}
+
+@keyframes go-glitch {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    transform: translate(-2px);
+  }
+
+  33% {
+    clip-path: polygon(0 33%, 100% 33%, 100% 66%, 0 66%);
+    transform: translate(2px);
+  }
+
+  66% {
+    clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+    transform: none;
+  }
+}
+
+.go-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gray);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.go-scores {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.go-score-item {
+  text-align: center;
+}
+
+.go-score-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--electric);
+}
+
+.go-score-lbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--gray);
+  letter-spacing: 2px;
+}
+
+.restart-btn {
+  padding: 12px 32px;
+  background: transparent;
+  color: var(--electric);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--electric);
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: all 0.3s;
+}
+
+.restart-btn:hover {
+  background: rgba(0, 207, 255, 0.1);
+  box-shadow: var(--glow-e);
+}
+
+/* GAME GROUND FX */
+.game-ground {
+  height: 28px;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 207, 255, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.ground-circuit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0, 207, 255, 0.08) 40px, rgba(0, 207, 255, 0.08) 41px);
+  animation: ground-scroll 4s linear infinite;
+}
+
+@keyframes ground-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 640px) {
+  .dash-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #gameCanvas {
+    height: 180px;
+  }
+
+  .go-scores {
+    gap: 20px;
+  }
+}

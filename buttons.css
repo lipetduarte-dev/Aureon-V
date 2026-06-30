@@ -1,0 +1,136 @@
+/* ==========================================================================
+   BOTÕES — recorte "cyberpunk" (clip-path). Aliases mantidos para não
+   precisar renomear classes em nenhuma página:
+   .btn-primary / .btn-p  →  estilo elétrico (preenchido)
+   .btn-secondary / .btn-s →  estilo dourado (contorno)
+   .btn-outline            →  estilo elétrico (contorno)
+   ========================================================================== */
+.btn-primary,
+.btn-p {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--electric), var(--electric-dim));
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover,
+.btn-p:hover {
+  background: linear-gradient(135deg, #fff, var(--electric));
+  box-shadow: var(--glow-blue);
+  transform: translateY(-2px);
+}
+
+.btn-secondary,
+.btn-s {
+  padding: 13px 32px;
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--gold);
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover,
+.btn-s:hover {
+  background: rgba(240, 165, 0, 0.1);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  padding: 13px 32px;
+  background: transparent;
+  color: var(--electric);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid rgba(0, 207, 255, 0.4);
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 207, 255, 0.08);
+  box-shadow: var(--glow-blue);
+  transform: translateY(-2px);
+}
+
+body.light-theme .btn-primary,
+body.light-theme .btn-p,
+body.light-theme .card-btn,
+body.light-theme .launch-btn,
+body.light-theme .btn-submit {
+  color: #04101c;
+}
+
+.theme-toggle,
+.btn-primary,
+.btn-p,
+.btn-secondary,
+.btn-s,
+.btn-outline,
+.card-btn,
+.launch-btn,
+.btn-submit,
+.nav-mobile a {
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+
+  .btn-primary,
+  .btn-p,
+  .btn-secondary,
+  .btn-s,
+  .btn-outline,
+  .card-btn,
+  .launch-btn,
+  .btn-submit {
+    clip-path: none;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .hero-btns,
+  .cta-btns,
+  .produto-actions,
+  .produto-btns {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-btns a,
+  .cta-btns a,
+  .produto-actions a,
+  .produto-btns a {
+    width: 100%;
+    text-align: center;
+  }
+}

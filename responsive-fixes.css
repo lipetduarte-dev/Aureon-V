@@ -1,0 +1,112 @@
+/* ==========================================================================
+   RESPONSIVE FIXES — utilitários de cards/demo/boot reaproveitados em
+   produtos.html e volteye-info.html, mais ajustes mobile gerais.
+   ========================================================================== */
+.card-media {
+  min-height: 190px;
+}
+
+.card-badge {
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+  z-index: 3;
+  transform-origin: top right;
+}
+
+.demo-super-title {
+  display: block;
+  max-width: min(900px, calc(100vw - 32px));
+  margin-left: auto;
+  margin-right: auto;
+  overflow-wrap: anywhere;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--electric);
+}
+
+.boot-sequence {
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.boot-progress {
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(0, 207, 255, 0.14);
+}
+
+.boot-fill {
+  max-width: 100%;
+  border-radius: inherit;
+}
+
+@media (max-width: 768px) {
+  .card-media {
+    height: 180px;
+    min-height: 180px;
+    padding-top: 30px;
+  }
+
+  .card-badge {
+    top: 10px;
+    right: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+  }
+
+  .card-badge.lancamento {
+    animation-name: firePulseCompact;
+  }
+
+  .demo-super-title {
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    padding: 0 6px;
+  }
+
+  .demo-super-sub {
+    padding: 0 10px;
+    font-size: 0.92rem;
+  }
+
+  .boot-line {
+    font-size: 0.72rem;
+    letter-spacing: 1.4px;
+    line-height: 1.5;
+  }
+
+  .boot-progress {
+    height: 7px;
+  }
+}
+
+/* ── Correções específicas: volteye-info.html (ficha técnica + logo do demo) ── */
+.specs-table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.specs-table td:first-child {
+  width: auto;
+  min-width: 140px;
+}
+
+.launch-logo img {
+  width: 200px;
+  height: 200px;
+  max-width: 60vw;
+  max-height: 60vw;
+}
+
+@media (max-width: 480px) {
+  .launch-logo img {
+    width: 140px;
+    height: 140px;
+  }
+}

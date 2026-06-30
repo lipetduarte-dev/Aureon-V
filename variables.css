@@ -1,0 +1,41 @@
+/* ==========================================================================
+   DESIGN TOKENS — Aureon Volts
+   Unifica TODOS os nomes de variáveis já usados nas páginas (index/produtos
+   usam --navy-mid/--glow-blue, solucoes/empresa usam --navy2/--navy3/--glow-e),
+   para que nenhuma página perca uma variável ao migrar para este arquivo.
+   ========================================================================== */
+:root {
+  --electric: #00CFFF;
+  --electric-dim: #0099CC;
+  --gold: #F0A500;
+  --gold-dim: #B87A00;
+  --navy: #050D1A;
+  --navy-mid: #0A1829;
+  --navy-light: #0F2240;
+  --navy2: #0A1829;
+  --navy3: #0F2240;
+  --white: #FFFFFF;
+  --gray: #8FA8C8;
+  --green: #00FF99;
+  --red: #FF4D6A;
+
+  --glow-blue: 0 0 20px rgba(0, 207, 255, 0.5), 0 0 60px rgba(0, 207, 255, 0.2);
+  --glow-gold: 0 0 20px rgba(240, 165, 0, 0.5), 0 0 60px rgba(240, 165, 0, 0.2);
+  --glow-green: 0 0 20px rgba(0, 255, 153, 0.4);
+  --glow-e: 0 0 12px rgba(0, 207, 255, 0.7), 0 0 40px rgba(0, 207, 255, 0.3);
+  --glow-g: 0 0 12px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.3);
+  --glow-r: 0 0 12px rgba(255, 77, 106, 0.8), 0 0 40px rgba(255, 77, 106, 0.35);
+}
+
+body.light-theme {
+  --navy: #F6F8FB;
+  --navy-mid: #FFFFFF;
+  --navy-light: #EAF1F8;
+  --navy2: #FFFFFF;
+  --navy3: #EAF1F8;
+  --white: #071321;
+  --gray: #334D68;
+  --glow-blue: 0 0 18px rgba(0, 153, 204, 0.2), 0 0 44px rgba(0, 153, 204, 0.1);
+  --glow-gold: 0 0 18px rgba(184, 122, 0, 0.22), 0 0 44px rgba(184, 122, 0, 0.1);
+  background: #F6F8FB;
+}

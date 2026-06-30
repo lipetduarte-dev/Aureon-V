@@ -1,0 +1,191 @@
+/* ==========================================================================
+   BASE — body, seções genéricas, fundo animado, utilitários
+   ========================================================================== */
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+body.light-theme section {
+  color: #071321;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Fundo em canvas (partículas / grafo IoT) ── */
+#particles-canvas,
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+#bgCanvas {
+  opacity: 1;
+}
+
+body.light-theme #particles-canvas,
+body.light-theme #bgCanvas {
+  opacity: 0.22;
+}
+
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.04) 2px, rgba(0, 0, 0, 0.04) 4px);
+}
+
+body.light-theme .hero-grid-bg,
+body.light-theme .tech-grid {
+  opacity: 0.7;
+}
+
+/* ── Títulos de seção genéricos ── */
+.section-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: var(--electric);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--electric), transparent);
+}
+
+.section-label::after {
+  background: linear-gradient(90deg, transparent, var(--electric));
+}
+
+.section-label.left::before,
+.section-label.left::after {
+  display: none;
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title span {
+  color: var(--electric);
+}
+
+.section-title.gold span,
+.section-title .g {
+  color: var(--gold);
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.92rem;
+  max-width: 720px;
+  margin: 0 auto 56px;
+  line-height: 1.8;
+}
+
+body.light-theme .section-sub {
+  color: #334D68;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Skeleton para body.light-theme reaproveitado por vários componentes ── */
+body.light-theme .card,
+body.light-theme .produto-card,
+body.light-theme .canal-card,
+body.light-theme .form-container,
+body.light-theme .rede-item,
+body.light-theme .indicator,
+body.light-theme .stat,
+body.light-theme .beneficio-card,
+body.light-theme .proximo-card,
+body.light-theme .launch-card,
+body.light-theme .dashboard,
+body.light-theme .dash-card,
+body.light-theme .demo-container,
+body.light-theme .demo-metric,
+body.light-theme .demo-chart-box,
+body.light-theme .solucao-card,
+body.light-theme .aplicacao-card,
+body.light-theme .intro-panel,
+body.light-theme .alert-item {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 111, 159, 0.2);
+  box-shadow: 0 10px 28px rgba(13, 27, 46, 0.08);
+}
+
+body.light-theme .hero-sub,
+body.light-theme .hero-desc,
+body.light-theme .card-text,
+body.light-theme .produto-desc,
+body.light-theme .cta-text,
+body.light-theme .cta-sub,
+body.light-theme .intro-text p,
+body.light-theme .solucao-desc,
+body.light-theme .beneficio-text,
+body.light-theme .det-block ul li,
+body.light-theme .aplicacao-card ul li,
+body.light-theme .aplicacao-card p.lead-txt,
+body.light-theme .pilar-body span,
+body.light-theme .voltX-note p,
+body.light-theme footer p,
+body.light-theme .footer-col a,
+body.light-theme .footer-links a {
+  color: #334D68;
+}
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
